@@ -1,0 +1,18 @@
+---
+// Props para personalizar la imagen
+const { src, alt } = Astro.props;
+---
+
+<div class="flex items-center justify-center h-full">
+  <img 
+    src={src} 
+    alt={alt} 
+    class="max-w-full h-auto"
+  />
+</div>
+
+<style>
+  img {
+    max-height: 100%; /* Limita la altura al contenedor */
+  }
+</style>

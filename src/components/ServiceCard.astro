@@ -1,0 +1,142 @@
+---
+const { title, subtitle, details, iconSvg, color } = Astro.props;
+---
+
+<div class="service-card group transform transition-all duration-300">
+  <div class="rounded-xl overflow-hidden flex flex-col h-full bg-white">
+    <div class="p-6">
+      <div class="w-16 h-16 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-br from-[#baec88] to-[#74B634]">
+        <Fragment set:html={iconSvg} />
+      </div>
+      <h3 class="text-xl font-bold mb-3" style={`color: ${color}`}>{title}</h3>
+      <p class="text-gray-600 mb-4 text-sm">{subtitle}</p>
+      <button class="toggle-details flex items-center justify-between font-bold w-full text-gray-600 py-2.5 px-4 rounded-lg transition-all text-black hover:bg-gray-50 border border-transparent hover:border-gray-100">
+        <span>Ver más</span>
+        <svg class="w-5 h-5 transition-transform duration-300 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="details-wrapper transition-[height] duration-300 ease-in-out" style="height: 0">
+      <div class="details opacity-0 transform translate-y-2 transition-all duration-300 px-6 pb-6">
+        <div class="bg-gray-50 rounded-lg p-4">
+          <ul class="space-y-3">
+            {details.map((item: string) => (
+              <li class="flex items-start">
+                <span class="mr-2.5 text-[#74B634] text-lg leading-tight">•</span>
+                <span class="text-gray-700 text-sm leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .details-wrapper {
+    overflow: hidden;
+  }
+  .details-wrapper.expanded {
+    height: var(--expanded-height) !important;
+  }
+  .details-wrapper.expanded .details {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .toggle-details.expanded svg {
+    transform: rotate(180deg);
+  }
+  .service-card {
+    transition: all 0.3s ease-in-out;
+  }
+</style>
+
+<script>
+  interface ToggleEvent extends Event {
+    currentTarget: HTMLButtonElement;
+  }
+
+  function updateExpandedHeight(wrapper: HTMLElement) {
+    const details = wrapper.querySelector('.details') as HTMLElement;
+    if (details) {
+      const height = details.offsetHeight;
+      wrapper.style.setProperty('--expanded-height', `${height}px`);
+    }
+  }
+
+  function closeAllCards() {
+    document.querySelectorAll('.service-card').forEach(card => {
+      const detailsWrapper = card.querySelector('.details-wrapper');
+      const button = card.querySelector('.toggle-details');
+      const span = button?.querySelector('span');
+      
+      if (detailsWrapper && button) {
+        detailsWrapper.classList.remove('expanded');
+        button.classList.remove('expanded');
+        if (span) span.textContent = 'Ver más';
+      }
+    });
+  }
+
+  // Click handler for document to close cards when clicking outside
+  document.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement;
+    const servicesSection = document.getElementById('services');
+    const clickedCard = target.closest('.service-card');
+
+    // Only close cards if clicking outside any card and within the services section
+    if (!clickedCard && servicesSection?.contains(target)) {
+      closeAllCards();
+    }
+  });
+
+  // Click handler for toggle buttons
+  document.querySelectorAll('.toggle-details').forEach(button => {
+    button.addEventListener('click', (event: Event) => {
+      event.stopPropagation(); // Prevent document click from firing
+      const toggleButton = (event as ToggleEvent).currentTarget;
+      const card = toggleButton.closest('.service-card');
+      const detailsWrapper = card?.querySelector('.details-wrapper') as HTMLElement;
+      const span = toggleButton.querySelector('span');
+      
+      if (detailsWrapper && span) {
+        const isExpanded = detailsWrapper.classList.contains('expanded');
+        
+        if (!isExpanded) {
+          // Open card
+          updateExpandedHeight(detailsWrapper);
+          detailsWrapper.classList.add('expanded');
+          toggleButton.classList.add('expanded');
+          span.textContent = 'Ver menos';
+        } else {
+          // Close card
+          detailsWrapper.classList.remove('expanded');
+          toggleButton.classList.remove('expanded');
+          span.textContent = 'Ver más';
+        }
+      }
+    });
+  });
+
+  // Update heights on window resize
+  let resizeTimeout: number;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      const expandedWrappers = document.querySelectorAll('.details-wrapper.expanded') as NodeListOf<HTMLElement>;
+      expandedWrappers.forEach(wrapper => {
+        updateExpandedHeight(wrapper);
+      });
+    }, 100);
+  });
+
+  // Initial setup
+  document.addEventListener('DOMContentLoaded', () => {
+    const allWrappers = document.querySelectorAll('.details-wrapper') as NodeListOf<HTMLElement>;
+    allWrappers.forEach(wrapper => {
+      updateExpandedHeight(wrapper);
+    });
+  });
+</script>

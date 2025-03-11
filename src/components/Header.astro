@@ -1,0 +1,112 @@
+---
+import { Image } from 'astro:assets';
+---
+
+<header class="fixed top-0 left-0 w-full bg-white py-3 shadow-md z-[60]">
+  <div class="container mx-auto px-4 flex justify-between items-center">
+    <div class="flex-shrink-0">
+      <a href="/">
+        <Image
+          src="/logo.png"
+          alt="Logo"
+          width={150}
+          height={40}
+          class="h-10 w-auto"
+        />
+      </a>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center space-x-8">
+      <a href="#hero" class="text-gray-600 hover:text-gray-900 transition-colors">Inicio</a>
+      <a href="#portfolio" class="text-gray-600 hover:text-gray-900 transition-colors">Proyectos</a>
+      <a href="#services" class="text-gray-600 hover:text-gray-900 transition-colors">Servicios</a>
+      <a href="#contact" class="text-gray-600 hover:text-gray-900 transition-colors">Contacto</a>
+    </nav>
+
+    <!-- Social Icons -->
+    <div class="hidden md:flex items-center space-x-4">
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M13.397 20.997v-8.196h2.765l.411-3.209h-3.176V7.548c0-.926.258-1.56 1.587-1.56h1.684V3.127A22 22 0 0 0 14.201 3c-2.444 0-4.122 1.492-4.122 4.231v2.355H7.332v3.209h2.753v8.202z"/></svg>
+      </a>
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1M12 9a3 3 0 1 0 0 6a3 3 0 0 0 0-6m-5 3a5 5 0 1 1 10 0a5 5 0 0 1-10 0" clip-rule="evenodd"/></svg>
+      </a>
+      <a href="https://behance.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M10.097 11.323c.548-.226.968-.58 1.226-1s.419-.968.419-1.549c0-.548-.097-1.032-.258-1.451c-.194-.42-.452-.742-.807-.968a3.5 3.5 0 0 0-1.225-.516A8.5 8.5 0 0 0 7.87 5.71H2v12.258h5.968c.548 0 1.097-.032 1.58-.226a4.1 4.1 0 0 0 1.42-.645c.42-.258.742-.645.967-1.129c.226-.452.355-1 .355-1.645c0-.774-.193-1.452-.548-1.968c-.387-.452-.936-.806-1.645-1.032M4.742 7.839H7.29c.226 0 .452.032.678.032s.451.13.58.226a.83.83 0 0 1 .42.452c.097.193.129.419.129.742c0 .483-.13.903-.452 1.129a2.35 2.35 0 0 1-1.193.322h-2.71zm4.71 7.258c-.097.226-.226.355-.452.484c-.194.129-.42.226-.645.226c-.226.032-.484.032-.742.032H4.71v-3.323h2.967c.581 0 1.033.13 1.42.42c.355.258.548.742.548 1.355c-.064.322-.064.58-.193.806m12.355-2.903c-.13-.645-.42-1.194-.775-1.678a4.4 4.4 0 0 0-1.355-1.193a4.65 4.65 0 0 0-1.967-.452c-.678 0-1.323.13-1.807.355a4.05 4.05 0 0 0-1.451 1c-.42.42-.742.903-.968 1.484a5 5 0 0 0-.355 1.87c0 .678.097 1.323.323 1.904c.225.58.548 1.032.903 1.484c.42.42.87.742 1.451.968a5 5 0 0 0 1.904.355c1 0 1.87-.226 2.58-.678c.742-.451 1.226-1.226 1.581-2.322h-2.13c-.096.258-.322.548-.644.774c-.323.226-.774.355-1.258.355c-.678 0-1.226-.194-1.58-.549c-.356-.355-.582-1.032-.582-1.742H22c0-.677-.032-1.355-.194-1.935m-6.259.42c0-.227.097-.453.162-.646c.096-.226.193-.452.354-.613c.194-.194.452-.387.71-.516c.258-.13.58-.13.871-.13c.58 0 1.097.194 1.355.485c.258.322.484.774.548 1.42zm4.485-6.065h-5v1.225h5z"/>
+        </svg>
+      </a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+          <g fill="currentColor">
+            <path fill-rule="evenodd" d="M12.51 8.796v1.697a3.74 3.74 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766c-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-.988 1.483a1.595 1.595 0 0 1-1.743-.348A1.607 1.607 0 0 1 5.6 4.5a1.6 1.6 0 0 1 1.6 1.606" clip-rule="evenodd"/>
+            <path d="M7.2 8.809H4V19.5h3.2z"/>
+          </g>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Mobile menu button -->
+    <button id="mobile-menu-button" class="md:hidden text-gray-500 hover:text-gray-700 focus:outline-none">
+      <svg class="h-6 w-6" id="menu-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg class="h-6 w-6 hidden" id="close-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div id="mobile-menu" class="md:hidden fixed inset-x-0 top-[3.5rem] bg-white shadow-lg transform -translate-y-full transition-transform duration-300 ease-in-out z-[50]">
+  <nav class="container mx-auto py-6 px-4">
+    <ul class="flex flex-col space-y-4">
+      <li><a href="#hero" class="text-lg hover:text-gray-500 transition-colors block py-2">Inicio</a></li>
+      <li><a href="#portfolio" class="text-lg hover:text-gray-500 transition-colors block py-2">Proyectos</a></li>
+      <li><a href="#services" class="text-lg hover:text-gray-500 transition-colors block py-2">Servicios</a></li>
+      <li><a href="#contact" class="text-lg hover:text-gray-500 transition-colors block py-2">Contacto</a></li>
+    </ul>
+  </nav>
+</div>
+
+<script>
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+  let isMenuOpen = false;
+
+  function toggleMenu() {
+    isMenuOpen = !isMenuOpen;
+    
+    if (isMenuOpen) {
+      mobileMenu?.classList.remove('-translate-y-full');
+      menuIcon?.classList.add('hidden');
+      closeIcon?.classList.remove('hidden');
+    } else {
+      mobileMenu?.classList.add('-translate-y-full');
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+    }
+  }
+
+  mobileMenuButton?.addEventListener('click', toggleMenu);
+
+  // Close menu when clicking on a link
+  const mobileLinks = mobileMenu?.querySelectorAll('a');
+  mobileLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      toggleMenu();
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement;
+    if (isMenuOpen && !mobileMenu?.contains(target) && !mobileMenuButton?.contains(target)) {
+      toggleMenu();
+    }
+  });
+</script>

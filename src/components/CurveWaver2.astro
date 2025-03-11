@@ -1,0 +1,30 @@
+---
+interface Props {
+  topColor?: string;
+  bottomColor?: string;
+  className?: string;
+}
+
+const { 
+  topColor = "#f9fafb",
+  bottomColor = "#ffffff",
+  className = ""
+} = Astro.props;
+---
+
+<svg
+  viewBox="0 0 1200 52"
+  xmlns="http://www.w3.org/2000/svg"
+  preserveAspectRatio="none"
+  class={`w-full h-[52px] opacity-100 -mt-1 ${className}`}
+>
+  <!-- Fondo del SVG -->
+  <rect width="1200" height="52" y="0" fill={topColor} />
+
+  <!-- Curva en posición bottom -->
+  <path
+    fill={bottomColor}
+    opacity="1"
+    d="M0,52 Q600,12.480000000000002 1200,52 Z"
+  />
+</svg>

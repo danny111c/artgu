@@ -1,0 +1,401 @@
+---
+interface Testimonial {
+  name: string;
+  role: string;
+  content: string;
+  image: string;
+}
+
+const testimonials: Testimonial[] = [
+  {
+    name: "María García",
+    role: "Diseñadora Gráfica",
+    content: "Un trabajo excepcional. La atención al detalle y la creatividad son impresionantes.",
+    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Maria"
+  },
+  {
+    name: "Carlos Rodríguez",
+    role: "Director de Marketing",
+    content: "La mejor decisión que tomamos fue trabajar juntos. Los resultados superaron nuestras expectativas.",
+    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Carlos"
+  },
+  {
+    name: "Ana Martínez",
+    role: "Emprendedora",
+    content: "Profesionalismo y calidad en cada proyecto. Totalmente recomendado.",
+    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Ana"
+  },
+  {
+    name: "Luis Torres",
+    role: "CEO",
+    content: "Una experiencia extraordinaria. El proceso creativo fue fluido y los resultados son magníficos.",
+    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Luis"
+  }
+];
+---
+
+<section class="pt-24 md:pt-28 ">
+  <div class="container max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">    Nuestros clientes hablan 
+      <br>  <span class="text-[#74B634]">
+        por nosotros 
+      </span>
+  </h2>
+    <p class="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+      La satisfacción de nuestros clientes es nuestra mejor carta de presentación.
+    </p>
+
+    <div class="testimonials-container">
+      <button class="nav-arrow nav-prev" id="prevBtn" aria-label="Anterior">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+      </button>
+      
+      <div class="testimonials-slider">
+        <div class="slider-track" id="sliderTrack">
+          {testimonials.map((testimonial) => (
+            <div class="testimonial-card flex-none w-[300px] bg-white rounded-xl shadow-lg p-6 transform transition-transform hover:scale-105 mx-3">
+              <div class="flex items-center mb-4">
+                <img 
+                  src={testimonial.image} 
+                  alt={testimonial.name}
+                  class="w-12 h-12 rounded-full object-cover"
+                />
+                <div class="ml-4">
+                  <h3 class="font-semibold text-lg">{testimonial.name}</h3>
+                  <p class="text-gray-600 text-sm">{testimonial.role}</p>
+                </div>
+              </div>
+              <div class="testimonial-content">
+                <span class="quote-mark opening">"</span>
+                <p class="text-gray-700">{testimonial.content}</p>
+                <span class="quote-mark closing">"</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <button class="nav-arrow nav-next" id="nextBtn" aria-label="Siguiente">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .testimonials-slider {
+    position: relative;
+    overflow: hidden;
+    padding: 15px;
+    width: 100%;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent
+    );
+  }
+
+  .slider-track {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.5s ease;
+  }
+
+  .testimonial-card {
+    flex: 0 0 auto;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    transform-origin: center center;
+    transition: transform 0.3s ease;
+    /* Añadir margen para evitar cortes al hacer zoom */
+    margin: 10px;
+    /* Ajustar el ancho para compensar el margen */
+    width: calc(300px - 20px);
+    /* Añadir z-index para que las tarjetas con hover aparezcan por encima */
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (hover: hover) {
+    .testimonial-card:hover {
+      transform: scale(1.05);
+      z-index: 2;
+    }
+  }
+  
+  .nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #333;
+    border: none;
+  }
+  
+  .nav-arrow:hover {
+    background-color: #f8f8f8;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .nav-prev {
+    left: 10px;
+  }
+  
+  .nav-next {
+    right: 10px;
+  }
+  
+  /* Estilos para las comillas */
+  .testimonial-content {
+    position: relative;
+    padding: 5px 0;
+  }
+  
+  .quote-mark {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #22c55e; /* Verde */
+    line-height: 1;
+    position: absolute;
+  }
+  
+  .quote-mark.opening {
+    top: -10px;
+    left: -8px;
+  }
+  
+  .quote-mark.closing {
+    bottom: -25px;
+    right: -8px;
+  }
+  
+  .testimonial-content p {
+    position: relative;
+    z-index: 1;
+    padding: 0 10px;
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Obtener los elementos del DOM
+    const track = document.getElementById('sliderTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const container = document.querySelector('.testimonials-container');
+    
+    if (!track || !prevBtn || !nextBtn || !container) {
+      console.error('No se encontraron todos los elementos necesarios');
+      return;
+    }
+    
+    // Variables para el slider
+    const cardWidth = 324; // 300px ancho + 24px gap
+    let isAnimating = false;
+    let autoScrollInterval = null;
+    let userInteracted = false;
+    let lastInteractionTime = 0;
+    const interactionCooldown = 5000; // 5 segundos después de interacción para reanudar autoscroll
+    
+    // Obtener todas las tarjetas originales
+    const originalCards = Array.from(track.children);
+    const numOriginalCards = originalCards.length;
+    
+    // Eliminar todas las tarjetas para reconstruir el track
+    while (track.firstChild) {
+      track.removeChild(track.firstChild);
+    }
+    
+    // Función para crear un conjunto de tarjetas
+    function createCardSet(cards, isClone = false) {
+      const fragment = document.createDocumentFragment();
+      cards.forEach(card => {
+        const clone = card.cloneNode(true);
+        if (isClone) {
+          clone.setAttribute('aria-hidden', 'true');
+        }
+        fragment.appendChild(clone);
+      });
+      return fragment;
+    }
+    
+    // Crear múltiples conjuntos para asegurar suficiente contenido
+    // Estructura: [Conjunto 3] [Conjunto 2] [Conjunto 1] [ORIGINAL] [Conjunto 1] [Conjunto 2] [Conjunto 3]
+    const numSets = 3; // Número de conjuntos a cada lado
+    
+    // Añadir conjuntos antes del original (en orden inverso)
+    for (let i = numSets; i > 0; i--) {
+      track.appendChild(createCardSet(originalCards, true));
+    }
+    
+    // Añadir el conjunto original en el medio
+    track.appendChild(createCardSet(originalCards, false));
+    
+    // Añadir conjuntos después del original
+    for (let i = 0; i < numSets; i++) {
+      track.appendChild(createCardSet(originalCards, true));
+    }
+    
+    // Calcular el ancho total y la posición central
+    const totalSets = 2 * numSets + 1;
+    const totalCards = numOriginalCards * totalSets;
+    const totalWidth = totalCards * cardWidth;
+    
+    // Posicionar en el conjunto original (en el medio)
+    let position = -numOriginalCards * numSets * cardWidth;
+    track.style.transform = `translateX(${position}px)`;
+    
+    // Función para mover el slider
+    function moveSlider(direction) {
+      if (isAnimating) return;
+      isAnimating = true;
+      
+      // Marcar interacción del usuario
+      userInteracted = true;
+      lastInteractionTime = Date.now();
+      
+      // Detener autoscroll temporalmente
+      stopAutoScroll();
+      
+      // Aplicar transición suave
+      track.style.transition = 'transform 0.5s ease';
+      
+      // Mover una tarjeta en la dirección indicada
+      if (direction === 'prev') {
+        position += cardWidth;
+      } else {
+        position -= cardWidth;
+      }
+      
+      // Aplicar la transformación
+      track.style.transform = `translateX(${position}px)`;
+    }
+    
+    // Función para verificar y ajustar la posición después de la animación
+    function checkPosition() {
+      // Calcular en qué conjunto estamos
+      const currentSet = Math.floor(-position / (numOriginalCards * cardWidth));
+      
+      // Si estamos en el primer o último conjunto, reposicionar al centro
+      if (currentSet <= 0 || currentSet >= totalSets - 1) {
+        // Eliminar la transición para el salto
+        track.style.transition = 'none';
+        
+        // Calcular la posición dentro del conjunto actual (offset)
+        const offset = -position % (numOriginalCards * cardWidth);
+        
+        // Reposicionar al conjunto central con el mismo offset
+        position = -(numOriginalCards * numSets * cardWidth) - offset;
+        track.style.transform = `translateX(${position}px)`;
+        
+        // Forzar un reflow para que el navegador procese el cambio
+        track.offsetHeight;
+      }
+      
+      // Permitir nuevas animaciones
+      isAnimating = false;
+      
+      // Verificar si debemos reanudar el autoscroll
+      if (userInteracted && Date.now() - lastInteractionTime > interactionCooldown) {
+        userInteracted = false;
+        startAutoScroll();
+      }
+    }
+    
+    // Función para iniciar el autoscroll
+    function startAutoScroll() {
+      if (autoScrollInterval) return;
+      
+      autoScrollInterval = setInterval(() => {
+        if (!userInteracted) {
+          // Aplicar transición suave
+          track.style.transition = 'transform 0.5s ease';
+          
+          // Mover una tarjeta hacia la izquierda
+          position -= cardWidth;
+          
+          // Aplicar la transformación
+          track.style.transform = `translateX(${position}px)`;
+        }
+      }, 3000); // Mover cada 3 segundos
+    }
+    
+    // Función para detener el autoscroll
+    function stopAutoScroll() {
+      if (autoScrollInterval) {
+        clearInterval(autoScrollInterval);
+        autoScrollInterval = null;
+      }
+    }
+    
+    // Asignar eventos a los botones
+    prevBtn.addEventListener('click', function() {
+      moveSlider('prev');
+    });
+    
+    nextBtn.addEventListener('click', function() {
+      moveSlider('next');
+    });
+    
+    // Detener autoscroll al pasar el mouse por encima
+    container.addEventListener('mouseenter', function() {
+      userInteracted = true;
+      lastInteractionTime = Date.now();
+      stopAutoScroll();
+    });
+    
+    // Reanudar autoscroll al quitar el mouse
+    container.addEventListener('mouseleave', function() {
+      lastInteractionTime = Date.now();
+      setTimeout(() => {
+        if (Date.now() - lastInteractionTime >= interactionCooldown) {
+          userInteracted = false;
+          startAutoScroll();
+        }
+      }, interactionCooldown);
+    });
+    
+    // Escuchar el evento transitionend para manejar los saltos
+    track.addEventListener('transitionend', function() {
+      checkPosition();
+    });
+    
+    // Establecer la transición inicial
+    track.style.transition = 'transform 0.5s ease';
+    
+    // Iniciar el autoscroll
+    startAutoScroll();
+  });
+</script>

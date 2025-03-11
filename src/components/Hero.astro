@@ -1,0 +1,119 @@
+---
+import Image from '../components/Image.astro'; // Asegúrate de ajustar la ruta según tu estructura
+---
+
+<div class="relative min-h-[600px]">
+  <section id="hero" class="relative py-2 flex items-center min-h-[600px]">
+
+        <!-- Fondo con imagen y gradiente animado -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40" style="background-image: url('/fondo2.jpg');"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-[#f4faeb] via-[#f4faeb] to-[#ceebab] opacity-20 animate-background"></div>
+
+        <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-8">      <!-- Columna izquierda: Texto y botones -->
+      <div class="flex items-center justify-start">
+        <div class="text-left space-y-6">
+          <span class="rounded-full text-xs font-medium uppercase tracking-wider bg-[#74B634]/20 text-[#74B634] opacity-80 px-2 py-1 inline-block text-center">
+            Agencia de Marketing Digital
+          </span>
+          <h2 class="text-6xl font-bold">
+            Transformamos Ideas en <span class="highlighted-resultados">Resultados</span>
+          </h2>
+          <p class="text-lg">
+            Estrategias personalizadas para conectar tu marca con su audiencia y crecer juntos en el entorno digital.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#contact" class="inline-block bg-[#74B634] text-white py-3 px-6 rounded-lg font-semibold relative overflow-hidden shine-effect">
+              Empecemos a crear
+            </a>
+            <a href="#portfolio" class="inline-block bg-white border-2 border-gray-300 py-3 px-6 rounded-lg font-semibold">
+              Mira nuestro trabajo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna derecha: Imagen -->
+      <div class="flex items-center justify-center">
+        <Image src="/man2.webp" alt="Imagen representativa del hero" />
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+  .highlighted-resultados {
+    color: #75b634;
+    text-decoration: underline;
+    text-decoration-color: #75b63477;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 6px;
+  }
+
+  .shine-effect {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .shine-effect:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(116, 182, 52, 0.3);
+  }
+
+  .shine-effect::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 80%;
+    height: 300%;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.15),
+      rgba(255, 255, 255, 0.85),
+      rgba(255, 255, 255, 0.15),
+      rgba(255, 255, 255, 0),
+      transparent
+    );
+    transform: rotate(35deg) translateY(-5%);
+    filter: blur(5px);
+    animation: shine 2s ease-in-out infinite;
+  }
+
+  @keyframes shine {
+    0% {
+      left: -150%;
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 0.5;
+    }
+    100% {
+      left: 150%;
+      opacity: 0;
+    }
+  }
+
+  /* Animación del fondo suave */
+  @keyframes background {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
+
+  .animate-background {
+    background-size: 200% 200%;
+    animation: background 10s ease infinite;
+  }
+</style>

@@ -1,0 +1,207 @@
+<section class="max-w-7xl mx-auto px-6 pt-12 md:pt-12" id="contact">
+  <!-- Título verde centrado fuera del contenedor -->
+  <h1 class="text-center text-3xl md:text-4xl font-bold text-[#74B634] mb-10">
+    ¡Nos encantaría trabajar contigo!
+  </h1>
+
+  <!-- Contenedor principal de la card -->
+  <div id="contactCard" class="container mx-auto max-w-[1100px] grid grid-cols-1 md:grid-cols-2 gap-12 rounded-2xl shadow-lg bg-white overflow-hidden">
+    <!-- Columna Izquierda (contenido estático) -->
+    <div class="flex flex-col justify-center p-8 md:p-12 bg-[#2E2B2C] text-white">
+      <h2 class="text-4xl font-bold mb-6">
+        <span class="inline-block pr-2">Cotiza tu proyecto</span>
+        <br />
+        <span class="relative inline-block">
+          sin compromiso
+          <span class="absolute bottom-0 left-0 w-full h-2 bg-[#74B634] opacity-50"></span>
+        </span>
+      </h2>
+      <p class="text-lg mb-8 text-gray-200">
+        Hablemos sobre cómo podemos impulsar tu presencia digital.
+      </p>
+      <div class="flex flex-col space-y-3">
+        <!-- Bloque Email -->
+        <div class="flex items-center space-x-3 text-sm text-gray-300">
+          <div class="w-10 h-10 rounded-full bg-[#74B634] flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <span>info@tuempresa.com</span>
+        </div>
+        <!-- Bloque Teléfono -->
+        <div class="flex items-center space-x-3 text-sm text-gray-300">
+          <div class="w-10 h-10 rounded-full bg-[#74B634] flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a2 2 0 011.94 1.37l1.09 3.27a2 2 0 01-.45 1.92L8.4 10.6a11.05 11.05 0 005.2 5.2l2.2-1.62a2 2 0 011.92-.45l3.27 1.09A2 2 0 0121 18.72V22a2 2 0 01-2 2h-1" />
+            </svg>
+          </div>
+          <span>+123 456 7890</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna Derecha (contenido dinámico) -->
+    <div class="p-8 md:p-12 w-full">
+      <!-- Botones de selección -->
+      <div class="flex space-x-8 mb-8 border-b border-gray-200 pb-3">
+        <button
+          id="whatsappButton"
+          class="toggle-button flex items-center space-x-2 text-lg font-medium pb-3 transition-all border-b-2 border-[#74B634] text-[#2E2B2C] font-semibold"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>WhatsApp</span>
+        </button>
+        <button
+          id="emailButton"
+          class="toggle-button flex items-center space-x-2 text-lg font-medium pb-3 transition-all text-gray-500 hover:text-gray-700"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          <span>Email</span>
+        </button>
+      </div>
+
+      <!-- Contenido de WhatsApp -->
+      <div id="whatsappContent">
+        <div class="py-4">
+          <p class="text-lg mb-8 text-gray-700">
+            Contacta directamente con nuestro equipo de estrategia para una consulta rápida y personalizada.
+          </p>
+          <div class="flex justify-start">
+            <a
+              href="https://wa.me/1234567890"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-center space-x-2 bg-[#74B634] text-white px-8 py-4 rounded-lg hover:bg-[#5a9129] transition-all shadow-md"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="font-medium">Iniciar conversación</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contenido del formulario de Email -->
+      <div id="emailContent" class="hidden">
+        <form class="space-y-6 py-4">
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Nombre"
+              class="w-full border-b-2 border-gray-300 py-3 px-2 focus:outline-none focus:border-[#74B634] transition-all bg-gray-50 rounded-t-md"
+            />
+          </div>
+          <div class="relative">
+            <input
+              type="email"
+              placeholder="Email"
+              class="w-full border-b-2 border-gray-300 py-3 px-2 focus:outline-none focus:border-[#74B634] transition-all bg-gray-50 rounded-t-md"
+            />
+          </div>
+          <div class="relative">
+            <textarea
+              placeholder="¿Qué objetivos de marketing quieres alcanzar?"
+              class="w-full border-b-2 border-gray-300 py-3 px-2 focus:outline-none focus:border-[#74B634] transition-all bg-gray-50 rounded-t-md resize-none"
+              rows="4"
+            ></textarea>
+          </div>
+          <div class="flex justify-start pt-4">
+            <button
+              type="submit"
+              class="flex items-center space-x-2 bg-[#74B634] text-white px-8 py-4 rounded-lg hover:bg-[#5a9129] transition-all shadow-md"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span class="font-medium">Enviar mensaje</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  interface TransitionOptions {
+    behavior: 'smooth' | 'auto';
+    block: 'start' | 'center' | 'end' | 'nearest';
+  }
+
+  // Elementos de la card y contenidos
+  const contactCard = document.getElementById('contactCard') as HTMLElement;
+  const whatsappButton = document.getElementById('whatsappButton') as HTMLButtonElement;
+  const emailButton = document.getElementById('emailButton') as HTMLButtonElement;
+  const whatsappContent = document.getElementById('whatsappContent') as HTMLDivElement;
+  const emailContent = document.getElementById('emailContent') as HTMLDivElement;
+
+  if (contactCard && whatsappButton && emailButton && whatsappContent && emailContent) {
+    const activeClasses: string[] = ['border-b-2', 'border-[#74B634]', 'text-[#2E2B2C]', 'font-semibold'];
+    const inactiveClass: string = 'text-gray-500';
+
+    const updateButtonStyles = (showEmail: boolean): void => {
+      if (showEmail) {
+        emailButton.classList.add(...activeClasses);
+        whatsappButton.classList.remove(...activeClasses);
+        whatsappButton.classList.add(inactiveClass);
+      } else {
+        whatsappButton.classList.add(...activeClasses);
+        emailButton.classList.remove(...activeClasses);
+        emailButton.classList.add(inactiveClass);
+      }
+    };
+
+    const updateContentVisibility = (showEmail: boolean): void => {
+      if (showEmail) {
+        emailContent.classList.remove('hidden', 'opacity-0', 'translate-y-5');
+        emailContent.classList.add('opacity-100', 'translate-y-0');
+        whatsappContent.classList.add('hidden');
+      } else {
+        whatsappContent.classList.remove('hidden', 'opacity-0', 'translate-y-5');
+        whatsappContent.classList.add('opacity-100', 'translate-y-0');
+        emailContent.classList.add('hidden');
+      }
+    };
+
+    const animateCardHeight = (startHeight: number): void => {
+      requestAnimationFrame((): void => {
+        const endHeight: number = contactCard.scrollHeight;
+        contactCard.style.height = `${startHeight}px`;
+        contactCard.style.transition = 'height 0.3s ease-in-out';
+        contactCard.offsetHeight; // Forzar reflow
+        contactCard.style.height = `${endHeight}px`;
+
+        const handleTransitionEnd = (): void => {
+          contactCard.style.height = '';
+          contactCard.style.transition = '';
+          contactCard.removeEventListener('transitionend', handleTransitionEnd);
+          contactCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        };
+
+        contactCard.addEventListener('transitionend', handleTransitionEnd);
+      });
+    };
+
+    const toggleContent = (showEmail: boolean): void => {
+      const startHeight: number = contactCard.offsetHeight;
+      updateButtonStyles(showEmail);
+      updateContentVisibility(showEmail);
+      animateCardHeight(startHeight);
+    };
+
+    whatsappButton.addEventListener('click', () => toggleContent(false));
+    emailButton.addEventListener('click', () => toggleContent(true));
+  }
+</script>
+
+<style>
+  #whatsappContent, #emailContent {
+    transition: all 0.3s ease-in-out;
+  }
+</style>
